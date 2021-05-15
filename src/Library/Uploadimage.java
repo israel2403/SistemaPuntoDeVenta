@@ -21,6 +21,11 @@ public class Uploadimage extends javax.swing.JFrame {
     private File archivo;
     private JFileChooser abrirArchivo;
     private static String urlOrigen = null;
+    private static byte[] imageByte = null;
+
+    public static byte[] getImageByte() {
+        return imageByte;
+    }
 
     public void CargarImagen(JLabel label) {
         abrirArchivo = new JFileChooser();
@@ -30,8 +35,9 @@ public class Uploadimage extends javax.swing.JFrame {
             archivo = abrirArchivo.getSelectedFile();
             urlOrigen = archivo.getAbsolutePath();
             Image foto = getToolkit().getImage(urlOrigen);
-            foto = foto.getScaledInstance(240, 170, 1);
+            foto = foto.getScaledInstance(100, 100, 1);
             label.setIcon(new ImageIcon(foto));
+            imageByte = new byte[(int) archivo.length()];
         }
     }
 }

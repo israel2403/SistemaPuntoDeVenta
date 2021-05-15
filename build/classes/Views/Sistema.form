@@ -473,10 +473,10 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-                                      <Component id="LabelImage_Cliente" min="-2" pref="118" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="LabelImage_Cliente" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -493,6 +493,7 @@
                           <SubComponents>
                             <Component class="javax.swing.JLabel" name="LabelImage_Cliente">
                               <Properties>
+                                <Property name="horizontalAlignment" type="int" value="0"/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                     <LineBorder/>
@@ -525,6 +526,10 @@
                               <Font name="Dialog" size="14" style="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_NidKeyReleased"/>
+                            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_NidKeyTyped"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="LabelCliente_Nombre">
                           <Properties>
@@ -543,6 +548,10 @@
                               <Font name="Dialog" size="14" style="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_NombreKeyReleased"/>
+                            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_NombreKeyTyped"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="LabelCliente_Apellido">
                           <Properties>
@@ -561,6 +570,10 @@
                               <Font name="Dialog" size="14" style="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_ApellidoKeyReleased"/>
+                            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_ApellidoKeyTyped"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="TextFieldCliente_Email">
                           <Properties>
@@ -568,6 +581,9 @@
                               <Font name="Dialog" size="14" style="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_EmailKeyReleased"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="LabelCliente_Email">
                           <Properties>
@@ -586,6 +602,10 @@
                               <Font name="Dialog" size="14" style="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_TelefonoKeyReleased"/>
+                            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_TelefonoKeyTyped"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="LabelCliente_Telefono">
                           <Properties>
@@ -604,6 +624,9 @@
                               <Font name="Dialog" size="14" style="0"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TextFieldCliente_DireccionKeyReleased"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="LabelCliente_Direccion">
                           <Properties>

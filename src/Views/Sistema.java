@@ -5,6 +5,8 @@
  */
 package Views;
 
+import Library.Objetos;
+
 /**
  *
  * @author isra
@@ -172,6 +174,7 @@ public class Sistema extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        LabelImage_Cliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelImage_Cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LabelImage_Cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LabelImage_Cliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,10 +187,10 @@ public class Sistema extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(LabelImage_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelImage_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,32 +205,74 @@ public class Sistema extends javax.swing.JFrame {
         LabelCliente_Nid.setText("Nid");
 
         TextFieldCliente_Nid.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TextFieldCliente_Nid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_NidKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_NidKeyTyped(evt);
+            }
+        });
 
         LabelCliente_Nombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         LabelCliente_Nombre.setForeground(new java.awt.Color(70, 106, 124));
         LabelCliente_Nombre.setText("Nombre");
 
         TextFieldCliente_Nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TextFieldCliente_Nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_NombreKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_NombreKeyTyped(evt);
+            }
+        });
 
         LabelCliente_Apellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         LabelCliente_Apellido.setForeground(new java.awt.Color(70, 106, 124));
         LabelCliente_Apellido.setText("Apellido");
 
         TextFieldCliente_Apellido.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TextFieldCliente_Apellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_ApellidoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_ApellidoKeyTyped(evt);
+            }
+        });
 
         TextFieldCliente_Email.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TextFieldCliente_Email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_EmailKeyReleased(evt);
+            }
+        });
 
         LabelCliente_Email.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         LabelCliente_Email.setForeground(new java.awt.Color(70, 106, 124));
         LabelCliente_Email.setText("Email");
 
         TextFieldCliente_Telefono.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TextFieldCliente_Telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_TelefonoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_TelefonoKeyTyped(evt);
+            }
+        });
 
         LabelCliente_Telefono.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         LabelCliente_Telefono.setForeground(new java.awt.Color(70, 106, 124));
         LabelCliente_Telefono.setText("Telefono");
 
         TextFieldCliente_Direccion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TextFieldCliente_Direccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldCliente_DireccionKeyReleased(evt);
+            }
+        });
 
         LabelCliente_Direccion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         LabelCliente_Direccion.setForeground(new java.awt.Color(70, 106, 124));
@@ -441,17 +486,56 @@ public class Sistema extends javax.swing.JFrame {
     private void ButtonCliente_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_CancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonCliente_CancelarActionPerformed
-        
+    
     private void ButtonCliente_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_AgregarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonCliente_AgregarActionPerformed
 
     private void LabelImage_ClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelImage_ClienteMouseClicked
-        // TODO add your handling code here:
+        Objetos.uploadimage.CargarImagen(LabelImage_Cliente);
     }//GEN-LAST:event_LabelImage_ClienteMouseClicked
 
+    private void TextFieldCliente_NidKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NidKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_NidKeyReleased
+
+    private void TextFieldCliente_NidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NidKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_NidKeyTyped
+
+    private void TextFieldCliente_NombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NombreKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_NombreKeyReleased
+
+    private void TextFieldCliente_NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NombreKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_NombreKeyTyped
+
+    private void TextFieldCliente_ApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_ApellidoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_ApellidoKeyReleased
+
+    private void TextFieldCliente_ApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_ApellidoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_ApellidoKeyTyped
+
+    private void TextFieldCliente_EmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_EmailKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_EmailKeyReleased
+
+    private void TextFieldCliente_TelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_TelefonoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_TelefonoKeyReleased
+
+    private void TextFieldCliente_TelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_TelefonoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_TelefonoKeyTyped
+
+    private void TextFieldCliente_DireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_DireccionKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCliente_DireccionKeyReleased
+
     // </editor-fold>
-    
     /**
      * @param args the command line arguments
      */
