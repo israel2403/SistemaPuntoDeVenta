@@ -6,6 +6,7 @@
 package Views;
 
 import Library.Objetos;
+import java.awt.Color;
 
 /**
  *
@@ -486,7 +487,7 @@ public class Sistema extends javax.swing.JFrame {
     private void ButtonCliente_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_CancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonCliente_CancelarActionPerformed
-    
+
     private void ButtonCliente_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_AgregarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonCliente_AgregarActionPerformed
@@ -496,7 +497,12 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_LabelImage_ClienteMouseClicked
 
     private void TextFieldCliente_NidKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NidKeyReleased
-        // TODO add your handling code here:
+        if (TextFieldCliente_Nid.getText().isEmpty()) {
+            LabelCliente_Nid.setForeground(new Color(102, 102, 102));
+        } else {
+            LabelCliente_Nid.setText("Nid");
+            LabelCliente_Nid.setForeground(new Color(0, 153, 51));
+        }
     }//GEN-LAST:event_TextFieldCliente_NidKeyReleased
 
     private void TextFieldCliente_NidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NidKeyTyped
@@ -504,7 +510,12 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldCliente_NidKeyTyped
 
     private void TextFieldCliente_NombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NombreKeyReleased
-        // TODO add your handling code here:
+        if (TextFieldCliente_Nombre.getText().isEmpty()) {
+            LabelCliente_Nombre.setForeground(new Color(102, 102, 102));
+        } else {
+            LabelCliente_Nombre.setText("Nombre");
+            LabelCliente_Nombre.setForeground(new Color(0, 153, 51));
+        }
     }//GEN-LAST:event_TextFieldCliente_NombreKeyReleased
 
     private void TextFieldCliente_NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NombreKeyTyped
@@ -512,7 +523,12 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldCliente_NombreKeyTyped
 
     private void TextFieldCliente_ApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_ApellidoKeyReleased
-        // TODO add your handling code here:
+        if (TextFieldCliente_Apellido.getText().isEmpty()) {
+            LabelCliente_Apellido.setForeground(new Color(102, 102, 102));
+        } else {
+            LabelCliente_Apellido.setText("Apellido");
+            LabelCliente_Apellido.setForeground(new Color(0, 153, 51));
+        }
     }//GEN-LAST:event_TextFieldCliente_ApellidoKeyReleased
 
     private void TextFieldCliente_ApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_ApellidoKeyTyped
@@ -520,11 +536,21 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldCliente_ApellidoKeyTyped
 
     private void TextFieldCliente_EmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_EmailKeyReleased
-        // TODO add your handling code here:
+        if (TextFieldCliente_Email.getText().isEmpty()) {
+            LabelCliente_Email.setForeground(new Color(102, 102, 102));
+        } else {
+            LabelCliente_Email.setText("Email");
+            LabelCliente_Email.setForeground(new Color(0, 153, 51));
+        }
     }//GEN-LAST:event_TextFieldCliente_EmailKeyReleased
 
     private void TextFieldCliente_TelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_TelefonoKeyReleased
-        // TODO add your handling code here:
+        if (TextFieldCliente_Telefono.getText().isEmpty()) {
+            LabelCliente_Telefono.setForeground(new Color(102, 102, 102));
+        } else {
+            LabelCliente_Telefono.setText("Telefono");
+            LabelCliente_Telefono.setForeground(new Color(0, 153, 51));
+        }
     }//GEN-LAST:event_TextFieldCliente_TelefonoKeyReleased
 
     private void TextFieldCliente_TelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_TelefonoKeyTyped
@@ -532,7 +558,12 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldCliente_TelefonoKeyTyped
 
     private void TextFieldCliente_DireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_DireccionKeyReleased
-        // TODO add your handling code here:
+        if (TextFieldCliente_Direccion.getText().isEmpty()) {
+            LabelCliente_Direccion.setForeground(new Color(102, 102, 102));
+        } else {
+            LabelCliente_Direccion.setText("Direccion");
+            LabelCliente_Direccion.setForeground(new Color(0, 153, 51));
+        }
     }//GEN-LAST:event_TextFieldCliente_DireccionKeyReleased
 
     // </editor-fold>
