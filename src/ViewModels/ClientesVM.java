@@ -1,5 +1,6 @@
 package ViewModels;
 
+import Conexion.Consult;
 import Library.Objetos;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import javax.swing.JTextField;
  *
  * @author isra
  */
-public class ClientesVM {
+public class ClientesVM extends Consult {
 
     private String acccion = "insert";
     private final ArrayList<JLabel> _label;
@@ -56,6 +57,8 @@ public class ClientesVM {
                                     _label.get(5).setText("Ingrese la direccion");
                                     _label.get(5).setForeground(Color.RED);
                                     _label.get(5).requestFocus();
+                                } else {
+                                    
                                 }
                             }
                         }

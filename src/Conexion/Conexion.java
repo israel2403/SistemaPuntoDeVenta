@@ -18,7 +18,7 @@ public class Conexion {
     private String db = "punto_de_ventas";
     private String user = "root";
     private String password = "240395";
-    private String urlMysql = "jdbc:mysql://localhost/" + db + "?SslMode=none";
+    private String urlMysql = "jdbc:mysql://localhost/" + db + "?autoReconnect=true&useSSL=false";
     private Connection conn = null;
 
     public Conexion() {
@@ -26,6 +26,9 @@ public class Conexion {
             // obtenemos el driver para mysql
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(this.urlMysql, this.user, this.password);
+            if (conn != null) {
+                System.out.println("Conexión a la base de datos " + this.db  + ".......... Listo");
+            }
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Error : " + ex);
         }
