@@ -20,6 +20,15 @@ public class TClientes {
     private String Apellido;
     private String Direccion;
     private String Telefono;
+    private String Email;
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
 
     public int getIdCliente() {
         return IdCliente;
