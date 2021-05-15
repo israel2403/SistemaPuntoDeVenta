@@ -6,7 +6,12 @@
 package Views;
 
 import Library.Objetos;
+import ViewModels.ClientesVM;
 import java.awt.Color;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -176,6 +181,7 @@ public class Sistema extends javax.swing.JFrame {
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         LabelImage_Cliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelImage_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/logo-google_1.png"))); // NOI18N
         LabelImage_Cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LabelImage_Cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LabelImage_Cliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -197,7 +203,7 @@ public class Sistema extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LabelImage_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                .addComponent(LabelImage_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -346,7 +352,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
@@ -479,8 +485,24 @@ public class Sistema extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // <editor-fold defaultstate="collapsed" desc="CODIGO DE CLIENTE">
+    private ClientesVM cliente;
     private void ButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClienteActionPerformed
-        // Se indica que cuando se presione el boton se pasa a la tag 1 o clientes
+        ArrayList<JLabel> label = new ArrayList<>();
+        label.add(LabelCliente_Nid);
+        label.add(LabelCliente_Nombre);
+        label.add(LabelCliente_Apellido);
+        label.add(LabelCliente_Email);
+        label.add(LabelCliente_Telefono);
+        label.add(LabelCliente_Direccion);
+        ArrayList<JTextField> textField = new ArrayList<>();
+        textField.add(TextFieldCliente_Nid);
+        textField.add(TextFieldCliente_Nombre);
+        textField.add(TextFieldCliente_Apellido);
+        textField.add(TextFieldCliente_Email);
+        textField.add(TextFieldCliente_Telefono);
+        textField.add(TextFieldCliente_Direccion);
+        Object[] objects = {};
+        cliente = new ClientesVM(objects, label, textField);
         TabbedPanePrincipal.setSelectedIndex(1);
     }//GEN-LAST:event_ButtonClienteActionPerformed
 
@@ -506,7 +528,7 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldCliente_NidKeyReleased
 
     private void TextFieldCliente_NidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NidKeyTyped
-        // TODO add your handling code here:
+        Objetos.evetos.numberKeyPress(evt);
     }//GEN-LAST:event_TextFieldCliente_NidKeyTyped
 
     private void TextFieldCliente_NombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NombreKeyReleased
@@ -519,7 +541,7 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldCliente_NombreKeyReleased
 
     private void TextFieldCliente_NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_NombreKeyTyped
-        // TODO add your handling code here:
+        Objetos.evetos.textKeyPress(evt);
     }//GEN-LAST:event_TextFieldCliente_NombreKeyTyped
 
     private void TextFieldCliente_ApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_ApellidoKeyReleased
@@ -532,7 +554,7 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldCliente_ApellidoKeyReleased
 
     private void TextFieldCliente_ApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_ApellidoKeyTyped
-        // TODO add your handling code here:
+        Objetos.evetos.textKeyPress(evt);
     }//GEN-LAST:event_TextFieldCliente_ApellidoKeyTyped
 
     private void TextFieldCliente_EmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_EmailKeyReleased
@@ -554,7 +576,7 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_TextFieldCliente_TelefonoKeyReleased
 
     private void TextFieldCliente_TelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_TelefonoKeyTyped
-        // TODO add your handling code here:
+        Objetos.evetos.numberKeyPress(evt);
     }//GEN-LAST:event_TextFieldCliente_TelefonoKeyTyped
 
     private void TextFieldCliente_DireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldCliente_DireccionKeyReleased
