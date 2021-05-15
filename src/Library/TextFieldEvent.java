@@ -1,6 +1,8 @@
 package Library;
 
 import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -21,5 +23,11 @@ public class TextFieldEvent {
         if ((car < '0' || car > '9') && (car != (char) KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
         }
+    }
+    
+    public boolean isEmail(String correo){
+        Pattern pat = Pattern.compile("^[A-Z0-9+_.-]+@[A-Z0-9.-]+$");
+        Matcher mat = pat.matcher(correo.toUpperCase());
+        return mat.find();
     }
 }

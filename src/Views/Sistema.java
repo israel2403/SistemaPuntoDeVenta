@@ -507,11 +507,11 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonClienteActionPerformed
 
     private void ButtonCliente_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_CancelarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_ButtonCliente_CancelarActionPerformed
 
     private void ButtonCliente_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_AgregarActionPerformed
-        // TODO add your handling code here:
+        cliente.registrarCliente();
     }//GEN-LAST:event_ButtonCliente_AgregarActionPerformed
 
     private void LabelImage_ClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelImage_ClienteMouseClicked
