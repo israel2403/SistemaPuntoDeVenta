@@ -197,7 +197,7 @@
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="88" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -305,8 +305,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TabbedPaneCliente" min="-2" pref="443" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="TabbedPaneCliente" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -371,16 +371,25 @@
                                           </Group>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="TextFieldCliente_Telefono" alignment="0" pref="185" max="32767" attributes="0"/>
-                                              <Component id="ButtonCliente_Agregar" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
-                                              <Component id="LabelCliente_Telefono" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="TextFieldCliente_Direccion" alignment="0" pref="185" max="32767" attributes="0"/>
-                                              <Component id="ButtonCliente_Cancelar" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                                              <Component id="LabelCliente_Direccion" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="TextFieldCliente_Telefono" alignment="0" pref="185" max="32767" attributes="0"/>
+                                                      <Component id="LabelCliente_Telefono" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="TextFieldCliente_Direccion" alignment="0" pref="185" max="32767" attributes="0"/>
+                                                      <Component id="LabelCliente_Direccion" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                                                  <Component id="ButtonCliente_Agregar" min="-2" pref="95" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="ButtonCliente_Cancelar" min="-2" pref="95" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="CheckBoxCliente_Credito" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
@@ -435,12 +444,14 @@
                                           <Component id="TextFieldCliente_Direccion" min="-2" pref="32" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="CheckBoxCliente_Credito" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="14" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="ButtonCliente_Cancelar" min="-2" max="-2" attributes="0"/>
                                       <Component id="ButtonCliente_Agregar" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -679,6 +690,11 @@
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente_AgregarActionPerformed"/>
                           </Events>
+                        </Component>
+                        <Component class="javax.swing.JCheckBox" name="CheckBoxCliente_Credito">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Credito"/>
+                          </Properties>
                         </Component>
                       </SubComponents>
                     </Container>

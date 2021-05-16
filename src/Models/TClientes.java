@@ -14,13 +14,40 @@ public class TClientes {
     public TClientes() {
     }
 
-    private int IdCliente;
+    private int ID;
     private String Nid;
     private String Nombre;
     private String Apellido;
     private String Direccion;
-    private String Telefono;
     private String Email;
+    private String Telefono;
+    private String Fecha;
+    private boolean Credito;
+    private byte[] Imagen;
+
+    public byte[] getImagen() {
+        return Imagen;
+    }
+
+    public void setImagen(byte[] Imagen) {
+        this.Imagen = Imagen;
+    }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
+
+    public boolean isCredito() {
+        return Credito;
+    }
+
+    public void setCredito(boolean Credito) {
+        this.Credito = Credito;
+    }
 
     public String getEmail() {
         return Email;
@@ -30,12 +57,12 @@ public class TClientes {
         this.Email = Email;
     }
 
-    public int getIdCliente() {
-        return IdCliente;
+    public int getID() {
+        return ID;
     }
 
-    public void setIdCliente(int IdCliente) {
-        this.IdCliente = IdCliente;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getNid() {

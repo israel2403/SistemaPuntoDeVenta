@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.sql.SQLException;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import org.apache.commons.dbutils.QueryRunner;
 
@@ -19,16 +20,18 @@ import org.apache.commons.dbutils.QueryRunner;
  * @author isra
  */
 public class ClientesVM extends Consult {
-    
+
     private String _acccion = "insert";
     private final ArrayList<JLabel> _label;
     private final ArrayList<JTextField> _textField;
-    
+    private JCheckBox _checkBoxCredito;
+
     public ClientesVM(Object[] objects, ArrayList<JLabel> label, ArrayList<JTextField> textField) {
         _label = label;
         _textField = textField;
+        _checkBoxCredito = (JCheckBox) objects[0];
     }
-    
+
     public void registrarCliente() {
         if (_textField.get(0).getText().isEmpty()) {
             _label.get(0).setText("Ingrese el nid");
@@ -104,7 +107,7 @@ public class ClientesVM extends Consult {
             }
         }
     }
-    
+
     private void Insert() throws SQLException {
         try {
             final QueryRunner qr = new QueryRunner(true);
@@ -113,6 +116,18 @@ public class ClientesVM extends Consult {
             if (image == null) {
                 image = Objetos.uploadimage.getTransFoto(_label.get(6));
             }
+            String sqlCliente = "INSERT INTO tclientes(Nid,Nombre, Apellido,Email, Telefono,Direccion,Credito,Fecha,Imagen) VALUES(?,?,?,?,?,?,?,?,?)";
+            Object[] dataCliente = {
+                _textField.get(0).getText(),
+                _textField.get(1).getText(),
+                _textField.get(2).getText(),
+                _textField.get(3).getText(),
+                _textField.get(4).getText(),
+                _textField.get(5).getText(),
+                _checkBoxCredito.isSelected(),
+                // new Calendario().getFecha(),
+                image
+            };
         } catch (Exception e) {
         }
     }
