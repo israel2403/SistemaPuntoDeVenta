@@ -1,6 +1,7 @@
 package ViewModels;
 
 import Conexion.Consult;
+import Library.Calendario;
 import Library.Objetos;
 import Library.Uploadimage;
 import Models.TClientes;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ColumnListHandler;
 
 /**
  *
@@ -116,7 +118,9 @@ public class ClientesVM extends Consult {
             if (image == null) {
                 image = Objetos.uploadimage.getTransFoto(_label.get(6));
             }
-            String sqlCliente = "INSERT INTO tclientes(Nid,Nombre, Apellido,Email, Telefono,Direccion,Credito,Fecha,Imagen) VALUES(?,?,?,?,?,?,?,?,?)";
+            String sqlCliente = "INSERT INTO tclientes "
+                    + "(Nid,Nombre,Apellido,Email,Telefono,Direccion,Credito,Fecha,Imagen) "
+                    + "VALUES (?,?,?,?,?,?,?,?,?)";
             Object[] dataCliente = {
                 _textField.get(0).getText(),
                 _textField.get(1).getText(),
@@ -125,10 +129,28 @@ public class ClientesVM extends Consult {
                 _textField.get(4).getText(),
                 _textField.get(5).getText(),
                 _checkBoxCredito.isSelected(),
-                // new Calendario().getFecha(),
+                new Calendario().getFecha(),
                 image
             };
-        } catch (Exception e) {
+            qr.insert(getConn(), sqlCliente, new ColumnListHandler(), dataCliente);
+            String sqlReport = "INSERT INTO treportes_clientes "
+                    + "(DeudaActutal, FechaDeuda, UltimoPago, FechaPago, Ticket, FechaLimite, IdCliente) "
+                    + "VALUES (?,?,?,?,?,?,?)";
+            List<TClientes> clientes = clientes();
+            Object[] dataReport = {
+                0,
+                "--/--/--",
+                0,
+                "--/--/--",
+                "0000000000",
+                "--/--/--",
+                clientes.get(clientes.size() - 1).getID()
+            };
+            qr.insert(getConn(), sqlReport, new ColumnListHandler(), dataReport);
+            getConn().commit();
+        } catch (SQLException e) {
+            getConn().rollback();
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 }
