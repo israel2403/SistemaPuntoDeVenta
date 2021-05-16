@@ -10,6 +10,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -42,7 +44,14 @@ public class Uploadimage extends javax.swing.JFrame {
             Image foto = getToolkit().getImage(urlOrigen);
             foto = foto.getScaledInstance(100, 100, 1);
             label.setIcon(new ImageIcon(foto));
-            imageByte = new byte[(int) archivo.length()];
+            try {
+                BufferedImage bImage = ImageIO.read(archivo);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ImageIO.write(bImage, "png", bos);
+                imageByte = bos.toByteArray();
+            } catch (IOException ex) {
+
+            }
         }
     }
 

@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import org.apache.commons.dbutils.QueryRunner;
@@ -22,18 +23,18 @@ import org.apache.commons.dbutils.handlers.ColumnListHandler;
  * @author isra
  */
 public class ClientesVM extends Consult {
-
+    
     private String _acccion = "insert";
     private final ArrayList<JLabel> _label;
     private final ArrayList<JTextField> _textField;
     private JCheckBox _checkBoxCredito;
-
+    
     public ClientesVM(Object[] objects, ArrayList<JLabel> label, ArrayList<JTextField> textField) {
         _label = label;
         _textField = textField;
         _checkBoxCredito = (JCheckBox) objects[0];
     }
-
+    
     public void registrarCliente() {
         if (_textField.get(0).getText().isEmpty()) {
             _label.get(0).setText("Ingrese el nid");
@@ -109,7 +110,7 @@ public class ClientesVM extends Consult {
             }
         }
     }
-
+    
     private void Insert() throws SQLException {
         try {
             final QueryRunner qr = new QueryRunner(true);
@@ -148,9 +149,36 @@ public class ClientesVM extends Consult {
             };
             qr.insert(getConn(), sqlReport, new ColumnListHandler(), dataReport);
             getConn().commit();
+            restablecer();
         } catch (SQLException e) {
             getConn().rollback();
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+    
+    public final void restablecer() {
+        _acccion = "insert";
+        _textField.get(0).setText("");
+        _textField.get(1).setText("");
+        _textField.get(2).setText("");
+        _textField.get(3).setText("");
+        _textField.get(4).setText("");
+        _textField.get(5).setText("");
+        _checkBoxCredito.setSelected(false);
+        _checkBoxCredito.setForeground(new Color(102, 102, 102));
+        _label.get(0).setText("Nid");
+        _label.get(0).setForeground(new Color(102, 102, 102));
+        _label.get(1).setText("Nombre");
+        _label.get(1).setForeground(new Color(102, 102, 102));
+        _label.get(2).setText("Apellido");
+        _label.get(2).setForeground(new Color(102, 102, 102));
+        _label.get(3).setText("Email");
+        _label.get(3).setForeground(new Color(102, 102, 102));
+        _label.get(4).setText("Telefono");
+        _label.get(4).setForeground(new Color(102, 102, 102));
+        _label.get(5).setText("Direccion");
+        _label.get(5).setForeground(new Color(102, 102, 102));
+        _label.get(6).setIcon(new ImageIcon(getClass().getClassLoader()
+                .getResource("Resources/logo-google_1.png")));
     }
 }
