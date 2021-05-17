@@ -79,7 +79,6 @@ public class Sistema extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         LabelCliente_Nombre1 = new javax.swing.JLabel();
         SpinnerPaginas_Clientes = new javax.swing.JSpinner();
-        ButtonCliente1 = new javax.swing.JButton();
         ButtonCliente_Paginas2 = new javax.swing.JButton();
         ButtonCliente_Paginas1 = new javax.swing.JButton();
         ButtonCliente_Paginas3 = new javax.swing.JButton();
@@ -469,6 +468,16 @@ public class Sistema extends javax.swing.JFrame {
 
             }
         ));
+        Table_Clientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Table_ClientesMouseClicked(evt);
+            }
+        });
+        Table_Clientes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Table_ClientesKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(Table_Clientes);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -510,16 +519,6 @@ public class Sistema extends javax.swing.JFrame {
         SpinnerPaginas_Clientes.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 SpinnerPaginas_ClientesStateChanged(evt);
-            }
-        });
-
-        ButtonCliente1.setBackground(new java.awt.Color(51, 51, 51));
-        ButtonCliente1.setForeground(new java.awt.Color(51, 51, 51));
-        ButtonCliente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/people.png"))); // NOI18N
-        ButtonCliente1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ButtonCliente1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCliente1ActionPerformed(evt);
             }
         });
 
@@ -592,11 +591,6 @@ public class Sistema extends javax.swing.JFrame {
                             .addComponent(LabelCliente_Paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addGap(541, 541, 541)
-                    .addComponent(ButtonCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(541, Short.MAX_VALUE)))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -619,11 +613,6 @@ public class Sistema extends javax.swing.JFrame {
                             .addComponent(ButtonCliente_Paginas1)
                             .addComponent(ButtonCliente_Paginas4))))
                 .addContainerGap())
-            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addGap(229, 229, 229)
-                    .addComponent(ButtonCliente1)
-                    .addContainerGap(229, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -806,10 +795,6 @@ public class Sistema extends javax.swing.JFrame {
         cliente.Paginador("Anterior");
     }//GEN-LAST:event_ButtonCliente_Paginas2ActionPerformed
 
-    private void ButtonCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonCliente1ActionPerformed
-
     private void ButtonCliente_Paginas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_Paginas1ActionPerformed
         cliente.Paginador("Primero");
     }//GEN-LAST:event_ButtonCliente_Paginas1ActionPerformed
@@ -825,6 +810,18 @@ public class Sistema extends javax.swing.JFrame {
     private void SpinnerPaginas_ClientesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerPaginas_ClientesStateChanged
         cliente.Registro_Paginas();
     }//GEN-LAST:event_SpinnerPaginas_ClientesStateChanged
+
+    private void Table_ClientesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Table_ClientesKeyReleased
+        if (Table_Clientes.getSelectedRows().length > 0) {
+            cliente.GetCliente();
+        }
+    }//GEN-LAST:event_Table_ClientesKeyReleased
+
+    private void Table_ClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_ClientesMouseClicked
+        if (Table_Clientes.getSelectedRows().length > 0) {
+            cliente.GetCliente();
+        }
+    }//GEN-LAST:event_Table_ClientesMouseClicked
 
     // </editor-fold>
     /**
@@ -864,7 +861,6 @@ public class Sistema extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCliente;
-    private javax.swing.JButton ButtonCliente1;
     private javax.swing.JButton ButtonCliente_Agregar;
     private javax.swing.JButton ButtonCliente_Cancelar;
     private javax.swing.JButton ButtonCliente_Paginas1;

@@ -98,27 +98,70 @@ public class ClientesVM extends Consult {
                                             .filter(u -> u.getNid().equals(_textField.get(0).getText()))
                                             .collect(Collectors.toList());
                                     count += listNid.size();
-                                    switch (_acccion) {
-                                        case "insert":
-                                            try {
-                                            if (count == 0) {
-                                                Insert();
-                                            } else {
-                                                if (!listEmail.isEmpty()) {
-                                                    _label.get(3).setText("El email ya esta registrado");
-                                                    _label.get(3).setForeground(Color.red);
-                                                    _textField.get(3).requestFocus();
+                                    try {
+                                        switch (_acccion) {
+                                            case "insert":
+
+                                                if (count == 0) {
+                                                    SaveData();
+                                                } else {
+                                                    if (!listEmail.isEmpty()) {
+                                                        _label.get(3).setText("El email ya esta registrado");
+                                                        _label.get(3).setForeground(Color.red);
+                                                        _textField.get(3).requestFocus();
+                                                    }
+                                                    if (!listNid.isEmpty()) {
+                                                        _label.get(0).setText("El nid ya esta registrado");
+                                                        _label.get(0).setForeground(Color.red);
+                                                        _textField.get(0).requestFocus();
+                                                    }
                                                 }
-                                                if (!listNid.isEmpty()) {
-                                                    _label.get(0).setText("El nid ya esta registrado");
-                                                    _label.get(0).setForeground(Color.red);
-                                                    _textField.get(0).requestFocus();
+
+                                                break;
+                                            case "update":
+                                                if (count == 2) {
+                                                    if (listEmail.get(0).getID() == _idCliente && listNid.get(0).getID() == _idCliente) {
+                                                        SaveData();
+                                                    } else {
+                                                        if (listNid.get(0).getID() != _idCliente) {
+                                                            _label.get(0).setText("El nid ya esta registrado");
+                                                            _label.get(0).setForeground(Color.red);
+                                                            _textField.get(0).requestFocus();
+                                                        }
+                                                        if (listEmail.get(0).getID() != _idCliente) {
+                                                            _label.get(3).setText("El email ya esta registrado");
+                                                            _label.get(3).setForeground(Color.red);
+                                                            _textField.get(3).requestFocus();
+                                                        }
+                                                    }
+                                                } else {
+                                                    if (count == 0) {
+                                                        SaveData();
+                                                    } else {
+                                                        if (!listNid.isEmpty()) {
+                                                            if (listNid.get(0).getID() != _idCliente) {
+                                                                SaveData();
+                                                            } else {
+                                                                _label.get(0).setText("El nid ya esta registrado");
+                                                                _label.get(0).setForeground(Color.red);
+                                                                _textField.get(0).requestFocus();
+                                                            }
+                                                        }
+                                                        if (!listEmail.isEmpty()) {
+                                                            if (listEmail.get(0).getID() != _idCliente) {
+                                                                SaveData();
+                                                            } else {
+                                                                _label.get(3).setText("El email ya esta registrado");
+                                                                _label.get(3).setForeground(Color.red);
+                                                                _textField.get(3).requestFocus();
+                                                            }
+                                                        }
+                                                    }
                                                 }
-                                            }
-                                        } catch (SQLException e) {
-                                            JOptionPane.showMessageDialog(null, e);
+                                                break;
                                         }
-                                        break;
+                                    } catch (SQLException e) {
+                                        JOptionPane.showMessageDialog(null, e);
                                     }
                                 }
                             }
@@ -129,7 +172,7 @@ public class ClientesVM extends Consult {
         }
     }
 
-    private void Insert() throws SQLException {
+    private void SaveData() throws SQLException {
         try {
             final QueryRunner qr = new QueryRunner(true);
             getConn().setAutoCommit(false);
@@ -137,35 +180,41 @@ public class ClientesVM extends Consult {
             if (image == null) {
                 image = Objetos.uploadimage.getTransFoto(_label.get(6));
             }
-            String sqlCliente = "INSERT INTO tclientes "
-                    + "(Nid,Nombre,Apellido,Email,Telefono,Direccion,Credito,Fecha,Imagen) "
-                    + "VALUES (?,?,?,?,?,?,?,?,?)";
-            Object[] dataCliente = {
-                _textField.get(0).getText(),
-                _textField.get(1).getText(),
-                _textField.get(2).getText(),
-                _textField.get(3).getText(),
-                _textField.get(4).getText(),
-                _textField.get(5).getText(),
-                _checkBoxCredito.isSelected(),
-                new Calendario().getFecha(),
-                image
-            };
-            qr.insert(getConn(), sqlCliente, new ColumnListHandler(), dataCliente);
-            String sqlReport = "INSERT INTO treportes_clientes "
-                    + "(DeudaActutal, FechaDeuda, UltimoPago, FechaPago, Ticket, FechaLimite, IdCliente) "
-                    + "VALUES (?,?,?,?,?,?,?)";
-            List<TClientes> clientes = clientes();
-            Object[] dataReport = {
-                0,
-                "--/--/--",
-                0,
-                "--/--/--",
-                "0000000000",
-                "--/--/--",
-                clientes.get(clientes.size() - 1).getID()
-            };
-            qr.insert(getConn(), sqlReport, new ColumnListHandler(), dataReport);
+            switch (_acccion) {
+                case "insert":
+                    String sqlCliente = "INSERT INTO tclientes "
+                            + "(Nid,Nombre,Apellido,Email,Telefono,Direccion,Credito,Fecha,Imagen) "
+                            + "VALUES (?,?,?,?,?,?,?,?,?)";
+                    Object[] dataCliente = {
+                        _textField.get(0).getText(),
+                        _textField.get(1).getText(),
+                        _textField.get(2).getText(),
+                        _textField.get(3).getText(),
+                        _textField.get(4).getText(),
+                        _textField.get(5).getText(),
+                        _checkBoxCredito.isSelected(),
+                        new Calendario().getFecha(),
+                        image
+                    };
+                    qr.insert(getConn(), sqlCliente, new ColumnListHandler(), dataCliente);
+                    String sqlReport = "INSERT INTO treportes_clientes "
+                            + "(DeudaActutal, FechaDeuda, UltimoPago, FechaPago, Ticket, FechaLimite, IdCliente) "
+                            + "VALUES (?,?,?,?,?,?,?)";
+                    List<TClientes> clientes = clientes();
+                    Object[] dataReport = {
+                        0,
+                        "--/--/--",
+                        0,
+                        "--/--/--",
+                        "0000000000",
+                        "--/--/--",
+                        clientes.get(clientes.size() - 1).getID()
+                    };
+                    qr.insert(getConn(), sqlReport, new ColumnListHandler(), dataReport);
+                    break;
+                case "update":
+                    break;
+            }
             getConn().commit();
             restablecer();
         } catch (SQLException e) {
