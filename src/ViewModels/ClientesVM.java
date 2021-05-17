@@ -3,6 +3,7 @@ package ViewModels;
 import Conexion.Consult;
 import Library.Calendario;
 import Library.Objetos;
+import Library.Render_CheckBox;
 import Library.Uploadimage;
 import Models.TClientes;
 import java.awt.Color;
@@ -25,17 +26,17 @@ import org.apache.commons.dbutils.handlers.ColumnListHandler;
  * @author isra
  */
 public class ClientesVM extends Consult {
-
+    
     private String _acccion = "insert";
     private final ArrayList<JLabel> _label;
     private final ArrayList<JTextField> _textField;
     private JCheckBox _checkBoxCredito;
     private final JTable _tableCliente;
     private DefaultTableModel modelo1;
-    private int _idCliente = 0;
-    private int _reg_por_pagina = 10;
-    private int _num_pagina = 1;
-
+    private final int _idCliente = 0;
+    private final int _reg_por_pagina = 10;
+    private final int _num_pagina = 1;
+    
     public ClientesVM(Object[] objects, ArrayList<JLabel> label, ArrayList<JTextField> textField) {
         _label = label;
         _textField = textField;
@@ -43,7 +44,7 @@ public class ClientesVM extends Consult {
         _tableCliente = (JTable) objects[1];
         restablecer();
     }
-
+    
     public void registrarCliente() {
         if (_textField.get(0).getText().isEmpty()) {
             _label.get(0).setText("Ingrese el nid");
@@ -119,7 +120,7 @@ public class ClientesVM extends Consult {
             }
         }
     }
-
+    
     private void Insert() throws SQLException {
         try {
             final QueryRunner qr = new QueryRunner(true);
@@ -164,7 +165,7 @@ public class ClientesVM extends Consult {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
+    
     public void SearcClientes(String campo) {
         List<TClientes> clienteFilter;
         String[] titulos = {"Id", "Nid", "Nombre", "Apellido", "Email", "Direccion", "Telefono", "Credito", "Image"};
@@ -205,8 +206,9 @@ public class ClientesVM extends Consult {
         _tableCliente.getColumnModel().getColumn(8).setMaxWidth(0);
         _tableCliente.getColumnModel().getColumn(8).setMinWidth(0);
         _tableCliente.getColumnModel().getColumn(8).setPreferredWidth(0);
+        _tableCliente.getColumnModel().getColumn(7).setCellRenderer(new Render_CheckBox());
     }
-
+    
     public final void restablecer() {
         _acccion = "insert";
         _textField.get(0).setText("");
