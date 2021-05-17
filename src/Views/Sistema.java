@@ -84,7 +84,7 @@ public class Sistema extends javax.swing.JFrame {
         ButtonCliente3 = new javax.swing.JButton();
         ButtonCliente4 = new javax.swing.JButton();
         ButtonCliente5 = new javax.swing.JButton();
-        LabelCliente_Nombre2 = new javax.swing.JLabel();
+        LabelCliente_Paginas = new javax.swing.JLabel();
         ButtonCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -557,9 +557,9 @@ public class Sistema extends javax.swing.JFrame {
             }
         });
 
-        LabelCliente_Nombre2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        LabelCliente_Nombre2.setForeground(new java.awt.Color(70, 106, 124));
-        LabelCliente_Nombre2.setText("Paginas");
+        LabelCliente_Paginas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        LabelCliente_Paginas.setForeground(new java.awt.Color(70, 106, 124));
+        LabelCliente_Paginas.setText("Paginas");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -583,7 +583,7 @@ public class Sistema extends javax.swing.JFrame {
                                 .addComponent(ButtonCliente4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ButtonCliente5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LabelCliente_Nombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(LabelCliente_Paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -605,7 +605,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LabelCliente_Nombre2)
+                        .addComponent(LabelCliente_Paginas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ButtonCliente4)
@@ -697,6 +697,7 @@ public class Sistema extends javax.swing.JFrame {
         label.add(LabelCliente_Telefono);
         label.add(LabelCliente_Direccion);
         label.add(LabelImage_Cliente);
+        label.add(LabelCliente_Paginas);
         ArrayList<JTextField> textField = new ArrayList<>();
         textField.add(TextFieldCliente_Nid);
         textField.add(TextFieldCliente_Nombre);
@@ -866,7 +867,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCliente_Nid;
     private javax.swing.JLabel LabelCliente_Nombre;
     private javax.swing.JLabel LabelCliente_Nombre1;
-    private javax.swing.JLabel LabelCliente_Nombre2;
+    private javax.swing.JLabel LabelCliente_Paginas;
     private javax.swing.JLabel LabelCliente_Telefono;
     private javax.swing.JLabel LabelImage_Cliente;
     private javax.swing.JTabbedPane TabbedPaneCliente;

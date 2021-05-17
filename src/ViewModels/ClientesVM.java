@@ -3,6 +3,7 @@ package ViewModels;
 import Conexion.Consult;
 import Library.Calendario;
 import Library.Objetos;
+import Library.Paginador;
 import Library.Render_CheckBox;
 import Library.Uploadimage;
 import Models.TClientes;
@@ -26,7 +27,7 @@ import org.apache.commons.dbutils.handlers.ColumnListHandler;
  * @author isra
  */
 public class ClientesVM extends Consult {
-    
+
     private String _acccion = "insert";
     private final ArrayList<JLabel> _label;
     private final ArrayList<JTextField> _textField;
@@ -35,8 +36,10 @@ public class ClientesVM extends Consult {
     private DefaultTableModel modelo1;
     private final int _idCliente = 0;
     private final int _reg_por_pagina = 10;
-    private final int _num_pagina = 1;
-    
+    private int _num_pagina = 1;
+    private int seccion;
+    private Paginador<TClientes> _paginadorClientes;
+
     public ClientesVM(Object[] objects, ArrayList<JLabel> label, ArrayList<JTextField> textField) {
         _label = label;
         _textField = textField;
@@ -44,7 +47,8 @@ public class ClientesVM extends Consult {
         _tableCliente = (JTable) objects[1];
         restablecer();
     }
-    
+
+    // <editor-fold defaultstate="collapsed" desc="CODIGO DE REGISTRAR CLIENTE">
     public void registrarCliente() {
         if (_textField.get(0).getText().isEmpty()) {
             _label.get(0).setText("Ingrese el nid");
@@ -120,7 +124,7 @@ public class ClientesVM extends Consult {
             }
         }
     }
-    
+
     private void Insert() throws SQLException {
         try {
             final QueryRunner qr = new QueryRunner(true);
@@ -165,7 +169,7 @@ public class ClientesVM extends Consult {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+
     public void SearcClientes(String campo) {
         List<TClientes> clienteFilter;
         String[] titulos = {"Id", "Nid", "Nombre", "Apellido", "Email", "Direccion", "Telefono", "Credito", "Image"};
@@ -208,8 +212,9 @@ public class ClientesVM extends Consult {
         _tableCliente.getColumnModel().getColumn(8).setPreferredWidth(0);
         _tableCliente.getColumnModel().getColumn(7).setCellRenderer(new Render_CheckBox());
     }
-    
+
     public final void restablecer() {
+        seccion = 1;
         _acccion = "insert";
         _textField.get(0).setText("");
         _textField.get(1).setText("");
@@ -233,6 +238,20 @@ public class ClientesVM extends Consult {
         _label.get(5).setForeground(new Color(102, 102, 102));
         _label.get(6).setIcon(new ImageIcon(getClass().getClassLoader()
                 .getResource("Resources/logo-google_1.png")));
+        _paginadorClientes = new Paginador<TClientes>(clientes(), _label.get(7), _reg_por_pagina);
         SearcClientes("");
+    }
+    // </editor-fold>
+
+    public void Paginador(String metodo) {
+        switch (metodo) {
+            case "Primero":
+                switch (seccion) {
+                    case 1:
+                        _num_pagina = _paginadorClientes.primero();
+                        break;
+                }
+                break;
+        }
     }
 }

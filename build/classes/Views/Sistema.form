@@ -765,7 +765,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="ButtonCliente5" min="-2" pref="80" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="LabelCliente_Nombre2" min="-2" pref="169" max="-2" attributes="0"/>
+                                      <Component id="LabelCliente_Paginas" min="-2" pref="169" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -795,7 +795,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jTabbedPane1" min="-2" pref="421" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="LabelCliente_Nombre2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelCliente_Paginas" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="ButtonCliente4" min="-2" max="-2" attributes="0"/>
@@ -1021,7 +1021,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente5ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="LabelCliente_Nombre2">
+                <Component class="javax.swing.JLabel" name="LabelCliente_Paginas">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="14" style="1"/>
