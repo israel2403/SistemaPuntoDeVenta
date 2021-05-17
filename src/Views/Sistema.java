@@ -46,7 +46,7 @@ public class Sistema extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TextField_BuscarCliente = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        TabbedPaneCliente = new javax.swing.JTabbedPane();
+        TabbedPaneCliente1 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -68,7 +68,7 @@ public class Sistema extends javax.swing.JFrame {
         ButtonCliente_Agregar = new javax.swing.JButton();
         ButtonCliente_Cancelar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TabbedPaneCliente2 = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Clientes = Table_Clientes = new javax.swing.JTable(){
@@ -186,6 +186,12 @@ public class Sistema extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        TabbedPaneCliente1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                TabbedPaneCliente1StateChanged(evt);
+            }
+        });
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -389,7 +395,10 @@ public class Sistema extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        TabbedPaneCliente.addTab("Registro de clientes", jPanel6);
+        TabbedPaneCliente1.addTab("Registro de clientes", jPanel6);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -402,7 +411,7 @@ public class Sistema extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        TabbedPaneCliente.addTab("Pagos", jPanel7);
+        TabbedPaneCliente1.addTab("Pagos y Reportes", jPanel7);
 
         ButtonCliente_Agregar.setBackground(new java.awt.Color(51, 51, 51));
         ButtonCliente_Agregar.setForeground(new java.awt.Color(51, 51, 51));
@@ -430,7 +439,7 @@ public class Sistema extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TabbedPaneCliente)
+                .addComponent(TabbedPaneCliente1)
                 .addContainerGap())
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(99, 99, 99)
@@ -443,7 +452,7 @@ public class Sistema extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TabbedPaneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TabbedPaneCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ButtonCliente_Cancelar)
@@ -453,6 +462,12 @@ public class Sistema extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        TabbedPaneCliente2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                TabbedPaneCliente2StateChanged(evt);
+            }
+        });
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -497,20 +512,23 @@ public class Sistema extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Lista De Clientes", jPanel10);
+        TabbedPaneCliente2.addTab("Lista De Clientes", jPanel10);
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1020, Short.MAX_VALUE)
+            .addGap(0, 1018, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 388, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Pagos y Reportes", jPanel11);
+        TabbedPaneCliente2.addTab("Pagos y Reportes", jPanel11);
 
         LabelCliente_Nombre1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         LabelCliente_Nombre1.setForeground(new java.awt.Color(70, 106, 124));
@@ -573,7 +591,7 @@ public class Sistema extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(TabbedPaneCliente2)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(SpinnerPaginas_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -603,7 +621,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(SpinnerPaginas_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TabbedPaneCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LabelCliente_Paginas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -823,6 +841,26 @@ public class Sistema extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Table_ClientesMouseClicked
 
+    private void TabbedPaneCliente1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneCliente1StateChanged
+        if (TabbedPaneCliente1.getSelectedIndex() == 0) {
+            if (TabbedPaneCliente2.getSelectedIndex() > 0) {
+                TabbedPaneCliente2.setSelectedIndex(0);
+            }
+        } else {
+            TabbedPaneCliente2.setSelectedIndex(1);
+        }
+    }//GEN-LAST:event_TabbedPaneCliente1StateChanged
+
+    private void TabbedPaneCliente2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneCliente2StateChanged
+        if (TabbedPaneCliente2.getSelectedIndex() == 0) {
+            if (TabbedPaneCliente1.getSelectedIndex() > 0) {
+                TabbedPaneCliente1.setSelectedIndex(0);
+            }
+        } else {
+            TabbedPaneCliente1.setSelectedIndex(1);
+        }
+    }//GEN-LAST:event_TabbedPaneCliente2StateChanged
+
     // </editor-fold>
     /**
      * @param args the command line arguments
@@ -878,7 +916,8 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCliente_Telefono;
     private javax.swing.JLabel LabelImage_Cliente;
     private javax.swing.JSpinner SpinnerPaginas_Clientes;
-    private javax.swing.JTabbedPane TabbedPaneCliente;
+    private javax.swing.JTabbedPane TabbedPaneCliente1;
+    private javax.swing.JTabbedPane TabbedPaneCliente2;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTable Table_Clientes;
     private javax.swing.JTextField TextFieldCliente_Apellido;
@@ -905,6 +944,5 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

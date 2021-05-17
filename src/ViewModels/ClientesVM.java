@@ -29,7 +29,7 @@ import org.apache.commons.dbutils.handlers.ColumnListHandler;
  * @author isra
  */
 public class ClientesVM extends Consult {
-
+    
     private String _acccion = "insert";
     private final ArrayList<JLabel> _label;
     private final ArrayList<JTextField> _textField;
@@ -42,7 +42,7 @@ public class ClientesVM extends Consult {
     private int _num_pagina = 1;
     private int seccion;
     private Paginador<TClientes> _paginadorClientes;
-
+    
     public ClientesVM(Object[] objects, ArrayList<JLabel> label, ArrayList<JTextField> textField) {
         _label = label;
         _textField = textField;
@@ -101,7 +101,7 @@ public class ClientesVM extends Consult {
                                     try {
                                         switch (_acccion) {
                                             case "insert":
-
+                                                
                                                 if (count == 0) {
                                                     SaveData();
                                                 } else {
@@ -116,7 +116,7 @@ public class ClientesVM extends Consult {
                                                         _textField.get(0).requestFocus();
                                                     }
                                                 }
-
+                                                
                                                 break;
                                             case "update":
                                                 if (count == 2) {
@@ -142,7 +142,7 @@ public class ClientesVM extends Consult {
                                                             if (listNid.get(0).getID() != _idCliente) {
                                                                 SaveData();
                                                             } else {
-                                                                _label.get(0).setText("El nid ya esta registrado");
+                                                                _label.get(0).setText("El nid1 ya esta registrado");
                                                                 _label.get(0).setForeground(Color.red);
                                                                 _textField.get(0).requestFocus();
                                                             }
@@ -171,7 +171,7 @@ public class ClientesVM extends Consult {
             }
         }
     }
-
+    
     private void SaveData() throws SQLException {
         try {
             final QueryRunner qr = new QueryRunner(true);
@@ -182,10 +182,10 @@ public class ClientesVM extends Consult {
             }
             switch (_acccion) {
                 case "insert":
-                    String sqlCliente = "INSERT INTO tclientes "
+                    String sqlCliente1 = "INSERT INTO tclientes "
                             + "(Nid,Nombre,Apellido,Email,Telefono,Direccion,Credito,Fecha,Imagen) "
                             + "VALUES (?,?,?,?,?,?,?,?,?)";
-                    Object[] dataCliente = {
+                    Object[] dataCliente1 = {
                         _textField.get(0).getText(),
                         _textField.get(1).getText(),
                         _textField.get(2).getText(),
@@ -196,7 +196,7 @@ public class ClientesVM extends Consult {
                         new Calendario().getFecha(),
                         image
                     };
-                    qr.insert(getConn(), sqlCliente, new ColumnListHandler(), dataCliente);
+                    qr.insert(getConn(), sqlCliente1, new ColumnListHandler(), dataCliente1);
                     String sqlReport = "INSERT INTO treportes_clientes "
                             + "(DeudaActutal, FechaDeuda, UltimoPago, FechaPago, Ticket, FechaLimite, IdCliente) "
                             + "VALUES (?,?,?,?,?,?,?)";
@@ -213,6 +213,21 @@ public class ClientesVM extends Consult {
                     qr.insert(getConn(), sqlReport, new ColumnListHandler(), dataReport);
                     break;
                 case "update":
+                    Object[] dataCliente2 = {
+                        _textField.get(0).getText(),
+                        _textField.get(1).getText(),
+                        _textField.get(2).getText(),
+                        _textField.get(3).getText(),
+                        _textField.get(4).getText(),
+                        _textField.get(5).getText(),
+                        _checkBoxCredito.isSelected(),
+                        image
+                    };
+                    String sqlCliente2 = "UPDATE tclientes SET "
+                            + "Nid =  ?, Nombre =  ?, Apellido =  ?, Email =  ?, "
+                            + "Telefono =  ?, Direccion =  ?, Credito =  ?, Imagen =  ? "
+                            + "WHERE ID =" + _idCliente;
+                    qr.update(getConn(), sqlCliente2, dataCliente2);
                     break;
             }
             getConn().commit();
@@ -222,7 +237,7 @@ public class ClientesVM extends Consult {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
+    
     public void SearcClientes(String campo) {
         List<TClientes> clienteFilter;
         String[] titulos = {"Id", "Nid", "Nombre", "Apellido", "Email", "Direccion", "Telefono", "Credito", "Image"};
@@ -265,7 +280,7 @@ public class ClientesVM extends Consult {
         _tableCliente.getColumnModel().getColumn(8).setPreferredWidth(0);
         _tableCliente.getColumnModel().getColumn(7).setCellRenderer(new Render_CheckBox());
     }
-
+    
     public void GetCliente() {
         _acccion = "update";
         int filas = _tableCliente.getSelectedRow();
@@ -274,12 +289,12 @@ public class ClientesVM extends Consult {
         _textField.get(1).setText((String) modelo1.getValueAt(filas, 2));
         _textField.get(2).setText((String) modelo1.getValueAt(filas, 3));
         _textField.get(3).setText((String) modelo1.getValueAt(filas, 4));
-        _textField.get(4).setText((String) modelo1.getValueAt(filas, 5));
-        _textField.get(5).setText((String) modelo1.getValueAt(filas, 6));
+        _textField.get(5).setText((String) modelo1.getValueAt(filas, 5));
+        _textField.get(4).setText((String) modelo1.getValueAt(filas, 6));
         _checkBoxCredito.setSelected((Boolean) modelo1.getValueAt(filas, 7));
         Objetos.uploadimage.byteImage(_label.get(6), (byte[]) modelo1.getValueAt(filas, 8));
     }
-
+    
     public final void restablecer() {
         seccion = 1;
         _acccion = "insert";
@@ -321,7 +336,7 @@ public class ClientesVM extends Consult {
     // </editor-fold>
 
     private List<TClientes> listClientes;
-
+    
     public void Paginador(String metodo) {
         switch (metodo) {
             case "Primero":
@@ -367,7 +382,7 @@ public class ClientesVM extends Consult {
                 break;
         }
     }
-
+    
     public void Registro_Paginas() {
         _num_pagina = 1;
         Number caja = (Number) _spinnerPaginas.getValue();
