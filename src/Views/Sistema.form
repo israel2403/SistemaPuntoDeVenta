@@ -751,19 +751,19 @@
                               <Component id="jTabbedPane1" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jSpinner1" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                                      <Component id="SpinnerPaginas_Clientes" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                                       <Component id="LabelCliente_Nombre1" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="ButtonCliente3" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="ButtonCliente_Paginas1" min="-2" pref="80" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="ButtonCliente2" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="ButtonCliente_Paginas2" min="-2" pref="80" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="ButtonCliente4" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="ButtonCliente_Paginas3" min="-2" pref="80" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="ButtonCliente5" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="ButtonCliente_Paginas4" min="-2" pref="80" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="LabelCliente_Paginas" min="-2" pref="169" max="-2" attributes="0"/>
                                   </Group>
@@ -789,7 +789,7 @@
                                   <EmptySpace min="-2" pref="433" max="-2" attributes="0"/>
                                   <Component id="LabelCliente_Nombre1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jSpinner1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SpinnerPaginas_Clientes" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
@@ -798,10 +798,10 @@
                                   <Component id="LabelCliente_Paginas" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ButtonCliente4" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ButtonCliente2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ButtonCliente3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ButtonCliente5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ButtonCliente_Paginas3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ButtonCliente_Paginas2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ButtonCliente_Paginas1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ButtonCliente_Paginas4" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -924,7 +924,10 @@
                     <Property name="text" type="java.lang.String" value="Registros por paginas"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner1">
+                <Component class="javax.swing.JSpinner" name="SpinnerPaginas_Clientes">
+                  <Events>
+                    <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpinnerPaginas_ClientesStateChanged"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="ButtonCliente1">
                   <Properties>
@@ -945,7 +948,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente1ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="ButtonCliente2">
+                <Component class="javax.swing.JButton" name="ButtonCliente_Paginas2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -961,10 +964,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente_Paginas2ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="ButtonCliente3">
+                <Component class="javax.swing.JButton" name="ButtonCliente_Paginas1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -980,10 +983,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente_Paginas1ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="ButtonCliente4">
+                <Component class="javax.swing.JButton" name="ButtonCliente_Paginas3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -999,10 +1002,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente_Paginas3ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="ButtonCliente5">
+                <Component class="javax.swing.JButton" name="ButtonCliente_Paginas4">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1018,7 +1021,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCliente_Paginas4ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="LabelCliente_Paginas">

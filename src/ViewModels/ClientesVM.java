@@ -17,7 +17,9 @@ import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ColumnListHandler;
@@ -27,24 +29,26 @@ import org.apache.commons.dbutils.handlers.ColumnListHandler;
  * @author isra
  */
 public class ClientesVM extends Consult {
-
+    
     private String _acccion = "insert";
     private final ArrayList<JLabel> _label;
     private final ArrayList<JTextField> _textField;
     private JCheckBox _checkBoxCredito;
     private final JTable _tableCliente;
     private DefaultTableModel modelo1;
+    private JSpinner _spinnerPaginas;
     private final int _idCliente = 0;
     private final int _reg_por_pagina = 10;
     private int _num_pagina = 1;
     private int seccion;
     private Paginador<TClientes> _paginadorClientes;
-
+    
     public ClientesVM(Object[] objects, ArrayList<JLabel> label, ArrayList<JTextField> textField) {
         _label = label;
         _textField = textField;
         _checkBoxCredito = (JCheckBox) objects[0];
         _tableCliente = (JTable) objects[1];
+        _spinnerPaginas = (JSpinner) objects[2];
         restablecer();
     }
 
@@ -124,7 +128,7 @@ public class ClientesVM extends Consult {
             }
         }
     }
-
+    
     private void Insert() throws SQLException {
         try {
             final QueryRunner qr = new QueryRunner(true);
@@ -169,7 +173,7 @@ public class ClientesVM extends Consult {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
+    
     public void SearcClientes(String campo) {
         List<TClientes> clienteFilter;
         String[] titulos = {"Id", "Nid", "Nombre", "Apellido", "Email", "Direccion", "Telefono", "Credito", "Image"};
@@ -212,7 +216,7 @@ public class ClientesVM extends Consult {
         _tableCliente.getColumnModel().getColumn(8).setPreferredWidth(0);
         _tableCliente.getColumnModel().getColumn(7).setCellRenderer(new Render_CheckBox());
     }
-
+    
     public final void restablecer() {
         seccion = 1;
         _acccion = "insert";
@@ -238,20 +242,70 @@ public class ClientesVM extends Consult {
         _label.get(5).setForeground(new Color(102, 102, 102));
         _label.get(6).setIcon(new ImageIcon(getClass().getClassLoader()
                 .getResource("Resources/logo-google_1.png")));
-        _paginadorClientes = new Paginador<TClientes>(clientes(), _label.get(7), _reg_por_pagina);
+        listClientes = clientes();
+        if (!listClientes.isEmpty()) {
+            _paginadorClientes = new Paginador<>(listClientes, _label.get(7), _reg_por_pagina);
+        }
+        SpinnerNumberModel model = new SpinnerNumberModel(
+                new Integer(10), // Dato visualizado al inicio en el spinner
+                new Integer(1), // Limite inferior,
+                new Integer(100), // Limite superior
+                new Integer(1) // Incremento-decremento
+        );
+        _spinnerPaginas.setModel(model);
         SearcClientes("");
     }
     // </editor-fold>
 
+    private List<TClientes> listClientes;
+    
     public void Paginador(String metodo) {
         switch (metodo) {
             case "Primero":
                 switch (seccion) {
                     case 1:
-                        _num_pagina = _paginadorClientes.primero();
+                        if (!listClientes.isEmpty()) {
+                            _num_pagina = _paginadorClientes.primero();
+                        }
+                        break;
+                }
+                break;
+            case "Anterior":
+                switch (seccion) {
+                    case 1:
+                        if (!listClientes.isEmpty()) {
+                            _num_pagina = _paginadorClientes.anterior();
+                        }
+                        break;
+                }
+                break;
+            case "Siguiente":
+                switch (seccion) {
+                    case 1:
+                        if (!listClientes.isEmpty()) {
+                            _num_pagina = _paginadorClientes.siguiente();
+                        }
+                        break;
+                }
+                break;
+            case "Ultimo":
+                switch (seccion) {
+                    case 1:
+                        if (!listClientes.isEmpty()) {
+                            _num_pagina = _paginadorClientes.ultimo();
+                        }
                         break;
                 }
                 break;
         }
+        switch (seccion) {
+            case 1:
+                SearcClientes("");
+                break;
+        }
+    }
+    
+    public void Registro_Paginas() {
+        
     }
 }

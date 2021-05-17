@@ -78,12 +78,12 @@ public class Sistema extends javax.swing.JFrame {
         };
         jPanel11 = new javax.swing.JPanel();
         LabelCliente_Nombre1 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        SpinnerPaginas_Clientes = new javax.swing.JSpinner();
         ButtonCliente1 = new javax.swing.JButton();
-        ButtonCliente2 = new javax.swing.JButton();
-        ButtonCliente3 = new javax.swing.JButton();
-        ButtonCliente4 = new javax.swing.JButton();
-        ButtonCliente5 = new javax.swing.JButton();
+        ButtonCliente_Paginas2 = new javax.swing.JButton();
+        ButtonCliente_Paginas1 = new javax.swing.JButton();
+        ButtonCliente_Paginas3 = new javax.swing.JButton();
+        ButtonCliente_Paginas4 = new javax.swing.JButton();
         LabelCliente_Paginas = new javax.swing.JLabel();
         ButtonCliente = new javax.swing.JButton();
 
@@ -507,6 +507,12 @@ public class Sistema extends javax.swing.JFrame {
         LabelCliente_Nombre1.setForeground(new java.awt.Color(70, 106, 124));
         LabelCliente_Nombre1.setText("Registros por paginas");
 
+        SpinnerPaginas_Clientes.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerPaginas_ClientesStateChanged(evt);
+            }
+        });
+
         ButtonCliente1.setBackground(new java.awt.Color(51, 51, 51));
         ButtonCliente1.setForeground(new java.awt.Color(51, 51, 51));
         ButtonCliente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/people.png"))); // NOI18N
@@ -517,43 +523,43 @@ public class Sistema extends javax.swing.JFrame {
             }
         });
 
-        ButtonCliente2.setBackground(new java.awt.Color(51, 51, 51));
-        ButtonCliente2.setForeground(new java.awt.Color(51, 51, 51));
-        ButtonCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Left.png"))); // NOI18N
-        ButtonCliente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ButtonCliente2.addActionListener(new java.awt.event.ActionListener() {
+        ButtonCliente_Paginas2.setBackground(new java.awt.Color(51, 51, 51));
+        ButtonCliente_Paginas2.setForeground(new java.awt.Color(51, 51, 51));
+        ButtonCliente_Paginas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Left.png"))); // NOI18N
+        ButtonCliente_Paginas2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonCliente_Paginas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCliente2ActionPerformed(evt);
+                ButtonCliente_Paginas2ActionPerformed(evt);
             }
         });
 
-        ButtonCliente3.setBackground(new java.awt.Color(51, 51, 51));
-        ButtonCliente3.setForeground(new java.awt.Color(51, 51, 51));
-        ButtonCliente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Left-12.png"))); // NOI18N
-        ButtonCliente3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ButtonCliente3.addActionListener(new java.awt.event.ActionListener() {
+        ButtonCliente_Paginas1.setBackground(new java.awt.Color(51, 51, 51));
+        ButtonCliente_Paginas1.setForeground(new java.awt.Color(51, 51, 51));
+        ButtonCliente_Paginas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Left-12.png"))); // NOI18N
+        ButtonCliente_Paginas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonCliente_Paginas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCliente3ActionPerformed(evt);
+                ButtonCliente_Paginas1ActionPerformed(evt);
             }
         });
 
-        ButtonCliente4.setBackground(new java.awt.Color(51, 51, 51));
-        ButtonCliente4.setForeground(new java.awt.Color(51, 51, 51));
-        ButtonCliente4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Right.png"))); // NOI18N
-        ButtonCliente4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ButtonCliente4.addActionListener(new java.awt.event.ActionListener() {
+        ButtonCliente_Paginas3.setBackground(new java.awt.Color(51, 51, 51));
+        ButtonCliente_Paginas3.setForeground(new java.awt.Color(51, 51, 51));
+        ButtonCliente_Paginas3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Right.png"))); // NOI18N
+        ButtonCliente_Paginas3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonCliente_Paginas3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCliente4ActionPerformed(evt);
+                ButtonCliente_Paginas3ActionPerformed(evt);
             }
         });
 
-        ButtonCliente5.setBackground(new java.awt.Color(51, 51, 51));
-        ButtonCliente5.setForeground(new java.awt.Color(51, 51, 51));
-        ButtonCliente5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Right-12.png"))); // NOI18N
-        ButtonCliente5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ButtonCliente5.addActionListener(new java.awt.event.ActionListener() {
+        ButtonCliente_Paginas4.setBackground(new java.awt.Color(51, 51, 51));
+        ButtonCliente_Paginas4.setForeground(new java.awt.Color(51, 51, 51));
+        ButtonCliente_Paginas4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Right-12.png"))); // NOI18N
+        ButtonCliente_Paginas4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonCliente_Paginas4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCliente5ActionPerformed(evt);
+                ButtonCliente_Paginas4ActionPerformed(evt);
             }
         });
 
@@ -571,18 +577,18 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(jTabbedPane1)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SpinnerPaginas_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LabelCliente_Nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(142, 142, 142)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(ButtonCliente3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonCliente_Paginas1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonCliente_Paginas2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonCliente4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonCliente_Paginas3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonCliente5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ButtonCliente_Paginas4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(LabelCliente_Paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -600,7 +606,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addGap(433, 433, 433)
                         .addComponent(LabelCliente_Nombre1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SpinnerPaginas_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -608,10 +614,10 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(LabelCliente_Paginas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ButtonCliente4)
-                            .addComponent(ButtonCliente2)
-                            .addComponent(ButtonCliente3)
-                            .addComponent(ButtonCliente5))))
+                            .addComponent(ButtonCliente_Paginas3)
+                            .addComponent(ButtonCliente_Paginas2)
+                            .addComponent(ButtonCliente_Paginas1)
+                            .addComponent(ButtonCliente_Paginas4))))
                 .addContainerGap())
             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel9Layout.createSequentialGroup()
@@ -707,7 +713,8 @@ public class Sistema extends javax.swing.JFrame {
         textField.add(TextFieldCliente_Direccion);
         Object[] objects = {
             CheckBoxCliente_Credito,
-            Table_Clientes
+            Table_Clientes,
+            SpinnerPaginas_Clientes
         };
         cliente = new ClientesVM(objects, label, textField);
         TabbedPanePrincipal.setSelectedIndex(1);
@@ -795,25 +802,29 @@ public class Sistema extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TextFieldCliente_DireccionKeyReleased
 
-    private void ButtonCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonCliente2ActionPerformed
+    private void ButtonCliente_Paginas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_Paginas2ActionPerformed
+        cliente.Paginador("Anterior");
+    }//GEN-LAST:event_ButtonCliente_Paginas2ActionPerformed
 
     private void ButtonCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonCliente1ActionPerformed
 
-    private void ButtonCliente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonCliente3ActionPerformed
+    private void ButtonCliente_Paginas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_Paginas1ActionPerformed
+        cliente.Paginador("Primero");
+    }//GEN-LAST:event_ButtonCliente_Paginas1ActionPerformed
 
-    private void ButtonCliente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonCliente4ActionPerformed
+    private void ButtonCliente_Paginas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_Paginas3ActionPerformed
+        cliente.Paginador("Siguiente");
+    }//GEN-LAST:event_ButtonCliente_Paginas3ActionPerformed
 
-    private void ButtonCliente5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonCliente5ActionPerformed
+    private void ButtonCliente_Paginas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCliente_Paginas4ActionPerformed
+        cliente.Paginador("Ultimo");
+    }//GEN-LAST:event_ButtonCliente_Paginas4ActionPerformed
+
+    private void SpinnerPaginas_ClientesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerPaginas_ClientesStateChanged
+        cliente.Registro_Paginas();
+    }//GEN-LAST:event_SpinnerPaginas_ClientesStateChanged
 
     // </editor-fold>
     /**
@@ -854,12 +865,12 @@ public class Sistema extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCliente;
     private javax.swing.JButton ButtonCliente1;
-    private javax.swing.JButton ButtonCliente2;
-    private javax.swing.JButton ButtonCliente3;
-    private javax.swing.JButton ButtonCliente4;
-    private javax.swing.JButton ButtonCliente5;
     private javax.swing.JButton ButtonCliente_Agregar;
     private javax.swing.JButton ButtonCliente_Cancelar;
+    private javax.swing.JButton ButtonCliente_Paginas1;
+    private javax.swing.JButton ButtonCliente_Paginas2;
+    private javax.swing.JButton ButtonCliente_Paginas3;
+    private javax.swing.JButton ButtonCliente_Paginas4;
     private javax.swing.JCheckBox CheckBoxCliente_Credito;
     private javax.swing.JLabel LabelCliente_Apellido;
     private javax.swing.JLabel LabelCliente_Direccion;
@@ -870,6 +881,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCliente_Paginas;
     private javax.swing.JLabel LabelCliente_Telefono;
     private javax.swing.JLabel LabelImage_Cliente;
+    private javax.swing.JSpinner SpinnerPaginas_Clientes;
     private javax.swing.JTabbedPane TabbedPaneCliente;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTable Table_Clientes;
@@ -897,7 +909,6 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
